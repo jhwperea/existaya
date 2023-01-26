@@ -1,0 +1,33 @@
+[{
+    "id": 2,
+    "icon": "like",
+    "name": "Superman",
+    "description": "Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Blanditiis soluta nobis praesentium pariatur tempore reprehenderit a esse",
+    "img": "superman",
+    "likes": 74,
+    "dislikes": 26
+}, {
+    "id": 3,
+    "icon": "dislike",
+    "name": "Thor",
+    "description": "Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Blanditiis soluta nobis praesentium pariatur tempore reprehenderit a esse",
+    "img": "thor",
+    "likes": 35,
+    "dislikes": 65
+}, {
+    "id": 4,
+    "icon": "dislike",
+    "name": "Batman",
+    "description": "Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Blanditiis soluta nobis praesentium pariatur tempore reprehenderit a esse",
+    "img": "batman",
+    "likes": 30,
+    "dislikes": 70
+}, {
+    "id": 5,
+    "icon": "like",
+    "name": "Spiderman",
+    "description": "Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Blanditiis soluta nobis praesentium pariatur tempore reprehenderit a esse",
+    "img": "spiderman",
+    "likes": 75,
+    "dislikes": 25
+}]

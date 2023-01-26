@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>ExistaYa - Jhonier Alejandro Perea Derazo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/img/logo.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<main id="app" class="p-0 m-0">
+		<section id="main-banner" class="container-fluid" v-for="superheroe in principal">
+			<header class="row pt-2 px-md-5">
+				<img src="assets/img/logo.png" class="col-md-3 col-12 px-5">
+				<div class="col d-none d-md-block">
+					<nav class="nav text-white pt-3">
+						<a class="px-3 h5 ml-md-auto">Héroes anteriores</a>
+						<a class="px-3 h5">¿Cómo funciona?</a>
+						<a class="px-3 h5">Iniciar Sesión</a>
+						<a class="px-3 h5"><i class="fas fa-search"></i></a>
+					</nav>
+				</div>
+				<div class="d-block d-md-none">
+					<a class="h3 text-white fa fa-bars" @click="menu = !menu"></a>
+					<ul v-if="menu" class="menu bg-light p-5 list-unstyled">
+						<li class="py-3 h5 ml-md-auto">Héroes anteriores</li>
+						<li class="py-3 h5">¿Cómo funciona?</li>
+						<li class="py-3 h5">Iniciar Sesión</li>
+					</ul>
+				</div>
+			</header>
+			<section class="row px-md-5">
+				<div class="col-md-6 py-2 px-3 p-md-5" v-if="votar == 'listo'">
+					<div class="votebox py-2 px-3 p-md-5">
+						<h6>Dinos tu opinión sobre</h6>
+						<h1 class="display-3" v-text="superheroe.name"></h1>
+						<p v-text="superheroe.description"></p>
+						<a class="text-white underline" :href="superheroe.wikipedia" target="_blank">Más información</a>
+						<h2 class="h1 strong">¿Cuál es tu voto?</h2>
+					</div>
+					<div class="container-fluid">
+						<div class="row text-white">
+							<div class="col p-3 bg-teal text-center pointer" @click="votarHeroe(principal, 'like')">
+								<i class="fas fa-thumbs-up texto-porcentaje"></i>
+							</div>
+							<div class="col p-3 bg-warning text-center pointer" @click="votarHeroe(principal, 'dislike')">
+								<i class="fas fa-thumbs-down texto-porcentaje"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div v-else class="col-md-6 py-2 px-3 p-md-5">
+					<div class="votebox py-2 px-3 p-md-5">
+						<h6 class="h1">Marvel - <span v-text="superheroe.name"></span></h6>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-3">    
+									<i v-if="votar == 'like'" class="fas bg-teal p-3 p-md-5 fa-thumbs-up"></i>
+									<i v-else class="fas bg-warning p-3 p-md-5 fa-thumbs-down"></i>
+								</div>
+								<div class="col-md-7 ml-md-2"><h2 class="display-md-4">Tu voto ha sido registrado</h2></div>
+							</div>
+						</div>
+						<p v-text="superheroe.description" class="pb-md-5 mb-md-4"></p>
+						<button class="btn btn-outline-light" @click="votar = 'listo'"><< Volver a votar</button>
+					</div>
+				</div>
+			</section>
+			<div class="row text-white">
+				<div class="pt-2 px-3 bg-like texto-porcentaje text-right" :style="'width: '+superheroe.likes+'%'">
+					<i class="fas fa-thumbs-up"></i>
+					<label v-text="superheroe.likes+'%'"></label>
+				</div>
+				<div class="pt-2 px-3 bg-dislike texto-porcentaje" :style="'width: '+superheroe.dislikes+'%'">
+					<label v-text="superheroe.dislikes+'%'"></label>
+					<i class="fas fa-thumbs-down"></i>
+				</div>
+			</div>
+		</section>
+		<section class="container py-2 px-3 p-md-5">
+			<div class="row">
+				<div class="col-md-12 text-center"><h1 class="display-md-4">Super Héroes anteriores</h1></div>
+				<figure class="col-md-6" v-for="superheroe in secundarios">
+					<figcaption class="text-white py-2 px-3 p-md-5" :style="'background-image: url(assets/img/'+superheroe.img+'.png)'">
+						<div class="spacer"></div>
+						<div class="icon-card">
+							<i v-if="superheroe.icon == 'like'" class="fas bg-teal p-2 fa-thumbs-up"></i>
+							<i v-else class="fas bg-warning p-2 fa-thumbs-down"></i>
+						</div>
+						<h1 v-text="superheroe.name"></h1>
+						<p v-text="superheroe.description"></p>
+						<div class="row">
+							<div class="col"><a class="btn btn-outline-light">Ver detalle</a></div>
+							<div class="col text-right"><span>1 mes atrás</span></div>
+						</div>
+					</figcaption>
+					<div class="container-fluid">
+						<div class="row text-white bg-dark">
+							<div class="pt-2 px-2 bg-like text-right" :style="'width: '+superheroe.likes+'%'">
+								<i class="fas fa-thumbs-up"></i>
+								<label v-text="superheroe.likes+'%'"></label>
+							</div>
+							<div class="pt-2 px-2 bg-dislike" :style="'width: '+superheroe.dislikes+'%'">
+								<label v-text="superheroe.dislikes+'%'"></label>
+								<i class="fas fa-thumbs-down"></i>
+							</div>
+						</div>
+					</div>
+				</figure>
+			</div>
+		</section>
+	</main>
+	<footer class="container pb-5">
+		<hr class="dotted">
+		<div class="row text-muted">
+			<div class="col-md-8">
+				<span class="pr-3">Terminos y condiciones</span>
+				<span class="pr-3">Politica de tratamiento de datos</span>
+				<span class="pr-3">Contactenos</span>
+			</div>
+			<div class="col-md-4 text-right">
+				<span class="pr-3">Siguenos:</span>
+				<span class="pr-3"><i class="fab fa-facebook-square"></i></span>
+				<span class="pr-3"><i class="fab fa-twitter"></i></span>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+<script src="assets/js/app.js"></script>
+</html>

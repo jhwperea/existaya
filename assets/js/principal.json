@@ -1,0 +1,9 @@
+[{
+    "id": 1,
+    "icon": "like",
+    "name": "Ironman",
+    "description": "Lorem, ipsum dolor sit amet, consectetur adipisicing elit.",
+    "wikipedia": "https://es.wikipedia.org/wiki/Iron_Man",
+    "likes": 77,
+    "dislikes": 23
+}]
