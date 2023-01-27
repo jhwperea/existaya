@@ -42,10 +42,10 @@
 					</div>
 					<div class="container-fluid">
 						<div class="row text-white">
-							<div class="col p-3 bg-teal text-center pointer" @click="votarHeroe(principal, 'like')">
+							<div class="col p-3 bg-teal text-center pointer" @click="votarH('like')">
 								<i class="fas fa-thumbs-up texto-porcentaje"></i>
 							</div>
-							<div class="col p-3 bg-warning text-center pointer" @click="votarHeroe(principal, 'dislike')">
+							<div class="col p-3 bg-warning text-center pointer" @click="votarH('dislike')">
 								<i class="fas fa-thumbs-down texto-porcentaje"></i>
 							</div>
 						</div>
@@ -69,12 +69,12 @@
 				</div>
 			</section>
 			<div class="row text-white">
-				<div class="pt-2 px-3 bg-like texto-porcentaje text-right" :style="'width: '+superheroe.likes+'%'">
+				<div class="pt-2 px-3 bg-like texto-porcentaje text-right" :style="'width: '+p_like+'%'">
 					<i class="fas fa-thumbs-up"></i>
-					<label v-text="superheroe.likes+'%'"></label>
+					<label v-text="p_like+'%'"></label>
 				</div>
-				<div class="pt-2 px-3 bg-dislike texto-porcentaje" :style="'width: '+superheroe.dislikes+'%'">
-					<label v-text="superheroe.dislikes+'%'"></label>
+				<div class="pt-2 px-3 bg-dislike texto-porcentaje" :style="'width: '+p_dislike+'%'">
+					<label v-text="p_dislike+'%'"></label>
 					<i class="fas fa-thumbs-down"></i>
 				</div>
 			</div>
